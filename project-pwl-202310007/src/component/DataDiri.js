@@ -1,8 +1,6 @@
 import React from "react";
 import { Button, Col, Container, Form, Row, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import DatePicker from "react-date-picker";
-// import "react-date-picker/dist/react-datepicker.css";
 import { useState } from "react";
 
 const DataDiri = () => {
@@ -113,6 +111,7 @@ const DataDiri = () => {
               placeholder="Due date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
+              required
             />
             <Form.Control.Feedback type="valid">
               Looks good!
