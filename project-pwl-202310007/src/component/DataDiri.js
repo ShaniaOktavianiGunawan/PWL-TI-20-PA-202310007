@@ -157,11 +157,11 @@ const DataDiri = () => {
               <Col xs="1">:</Col>
               <Col>
                 {Age}{" "}
-                {Age.toString().slice(-1) === 1
+                {Age.toString().slice(-1) === "1"
                   ? "st"
-                  : Age.toString().slice(-1) === 2
+                  : Age.toString().slice(-1) === "2"
                   ? "nd"
-                  : Age.toString().slice(-1) === 3
+                  : Age.toString().slice(-1) === "3"
                   ? "rd"
                   : "th"}
               </Col>
