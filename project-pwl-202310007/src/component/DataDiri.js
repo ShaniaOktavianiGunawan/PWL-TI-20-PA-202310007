@@ -35,11 +35,29 @@ const DataDiri = () => {
   const Age = currentYear - yearOfBirth;
   return (
     <div className="vh-100 d-flex align-items-center">
-      <div className=" border rounded  p-5 mx-auto w-50 ">
+      <div className=" border rounded  p-5 mx-auto w-75 ">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <h2 className="text-center">DATA DIRI</h2>
           <br />
           <Row className="mb-3">
+            <Form.Group as={Col} controlId="NPM">
+              <Form.Label>NPM </Form.Label>
+              <Form.Control
+                required
+                type="text"
+                pattern="[0-9]*"
+                placeholder="Enter NPM"
+                onChange={(e) => setNPM(e.target.value)}
+                maxLength={10}
+              />
+              <Form.Control.Feedback type="valid">
+                Looks good!
+              </Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid">
+                Please provide a valid npm.
+              </Form.Control.Feedback>
+            </Form.Group>
+
             <Form.Group as={Col}>
               <Form.Label>First Name</Form.Label>
               <Form.Control
@@ -59,12 +77,16 @@ const DataDiri = () => {
             <Form.Group as={Col}>
               <Form.Label>Middle Name</Form.Label>
               <Form.Control
+                required
                 type="Text"
                 placeholder="Middle Name"
                 onChange={(e) => setMiddleName(e.target.value)}
               />
               <Form.Control.Feedback type="valid">
                 Looks good!
+              </Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid">
+                Please provide a valid firstname.
               </Form.Control.Feedback>
             </Form.Group>
 
@@ -83,44 +105,27 @@ const DataDiri = () => {
                 Please provide a valid lastname.
               </Form.Control.Feedback>
             </Form.Group>
+
+            <Form.Group as={Col} controlId="duedate">
+              <Form.Label>Birthdate</Form.Label>
+              <Form.Control
+                type="date"
+                name="duedate"
+                placeholder="Due date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                required
+              />
+              <Form.Control.Feedback type="valid">
+                Looks good!
+              </Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid">
+                Please provide a valid birthdate.
+              </Form.Control.Feedback>
+            </Form.Group>
           </Row>
 
-          <Form.Group className="mb-3" controlId="NPM">
-            <Form.Label>NPM </Form.Label>
-            <Form.Control
-              required
-              type="text"
-              pattern="[0-9]*"
-              placeholder="Enter NPM"
-              onChange={(e) => setNPM(e.target.value)}
-              maxLength={10}
-            />
-            <Form.Control.Feedback type="valid">
-              Looks good!
-            </Form.Control.Feedback>
-            <Form.Control.Feedback type="invalid">
-              Please provide a valid npm.
-            </Form.Control.Feedback>
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="duedate">
-            <Form.Label>Birthdate</Form.Label>
-            <Form.Control
-              type="date"
-              name="duedate"
-              placeholder="Due date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-              required
-            />
-            <Form.Control.Feedback type="valid">
-              Looks good!
-            </Form.Control.Feedback>
-            <Form.Control.Feedback type="invalid">
-              Please provide a valid birthdate.
-            </Form.Control.Feedback>
-          </Form.Group>
-
+          <hr />
           <br />
 
           <Button

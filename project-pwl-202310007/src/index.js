@@ -1,16 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import DataDiri from './component/DataDiri';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import DataDiri from "./component/DataDiri";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+// import "react-datepicker/dist/react-datepicker.css";
+import StickyNotes from "./component/StickyNotes";
+import Biodata from "./component/Biodata";
+import Widget from "./component/Pertemuan2/Widget";
+import DataMultiple from "./component/Pertemuan2/DataMultiple";
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <DataDiri />
+    {/* <Biodata /> */}
+    {/* <Widget /> */}
+    <DataMultiple />
   </React.StrictMode>
 );
 
