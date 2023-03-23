@@ -6,13 +6,13 @@ import Layout from "./Layout";
 
 export default function DataMultiple() {
   var today = new Date();
-  const currDate = formatDate(today);
+  const currentDate = formatDate(today);
   const objProfile = {
     npm: 0,
     fname: "",
     mname: "",
     lname: "",
-    birthdate: currDate,
+    birthdate: currentDate,
   };
   const [postData, setPostData] = useState([objProfile]);
   const [mymodal, setMymodal] = useState({
@@ -41,6 +41,7 @@ export default function DataMultiple() {
                 return newData;
               })
             }
+            required
           />
         </td>
         <td>
@@ -57,6 +58,7 @@ export default function DataMultiple() {
                 return newData;
               })
             }
+            required
           />
         </td>
         <td>
@@ -73,6 +75,7 @@ export default function DataMultiple() {
                 return newData;
               })
             }
+            required
           />
         </td>
         <td>
@@ -89,6 +92,7 @@ export default function DataMultiple() {
                 return newData;
               })
             }
+            required
           />
         </td>
         <td>
@@ -104,12 +108,13 @@ export default function DataMultiple() {
             className="form-control"
             dateFormat="yyyy-MM-dd"
             placeholderText="Choose Date"
+            required
           />
         </td>
         {index !== 0 ? (
           <td>
             <button
-              className="btn btn-icon btn-sm btn-info"
+              className="btn btn-icon btn-sm btn-outline-danger"
               type="button"
               onClick={(e) =>
                 setPostData((prev) => {
@@ -119,7 +124,16 @@ export default function DataMultiple() {
                 })
               }
             >
-              <i className="bi bi-trash3-fill"></i>
+              <i
+                className="bi bi-trash3"
+                onClick={(e) =>
+                  setPostData((prev) => {
+                    const newData = [...prev];
+                    delete newData[index];
+                    return newData;
+                  })
+                }
+              ></i>
             </button>
           </td>
         ) : (
@@ -196,37 +210,31 @@ export default function DataMultiple() {
               </tbody>
               <tfoot>
                 <tr>
-                  <td colSpan={5}>
-                    <button
-                      className="btn btn-sm btn-light-primary"
-                      type="button"
-                      onClick={() =>
-                        setPostData((prev) => {
-                          return [...prev, objProfile];
-                        })
-                      }
-                    >
-                      <i className="bi bi-plus-circle-dotted me-2"></i>
-                      Add new row
-                    </button>
+                  <td colSpan={6}>
+                    <div className="d-flex justify-content-between mt-2">
+                      <button
+                        className="btn btn-sm btn-outline-primary"
+                        type="button"
+                        onClick={() =>
+                          setPostData((prev) => {
+                            return [...prev, objProfile];
+                          })
+                        }
+                      >
+                        <i className="bi bi-plus-circle-dotted me-2"></i>
+                        Add new row
+                      </button>
+                      <button className="btn btn-md btn-primary" type="submit">
+                        Save
+                      </button>
+                    </div>
                   </td>
                 </tr>
               </tfoot>
             </table>
-
-            <div className="text-end p-10">
-              <div className="btn-group">
-                <button className="btn btn-md btn-secondary" type="button">
-                  Clear
-                </button>
-                <button className="btn btn-md btn-primary" type="submit">
-                  Save
-                </button>
-              </div>
-            </div>
           </form>
         </div>
-        <ModalPopUP
+        <ModalProfile
           show={mymodal.show}
           handleClose={modalHandleClose}
           message={mymodal.message}
@@ -259,7 +267,7 @@ const calculateAge = (birthdate) => {
   return age;
 };
 
-const ModalPopUP = ({ show, handleClose, message }) => {
+const ModalProfile = ({ show, handleClose, message }) => {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
