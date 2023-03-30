@@ -3,21 +3,25 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import DataDiri from "./component/DataDiri";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 // import "react-datepicker/dist/react-datepicker.css";
-import StickyNotes from "./component/StickyNotes";
-import Biodata from "./component/Biodata";
-import Widget from "./component/Pertemuan2/Widget";
-import DataMultiple from "./component/Pertemuan2/DataMultiple";
 
+import { BrowserRouter } from "react-router-dom";
+import AppRoute from "./component/pertemuan-3/apps/AppRoute";
+import Login from "./component/pertemuan-3/layouts/components/Login/Login";
+
+const { PUBLIC_URL } = process.env;
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {/* <Biodata /> */}
     {/* <Widget /> */}
-    <DataMultiple />
+    {/* <DataMultiple /> */}
+    <BrowserRouter basename={PUBLIC_URL}>
+      <AppRoute />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
