@@ -9,8 +9,9 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 // import "react-datepicker/dist/react-datepicker.css";
 
 import { BrowserRouter } from "react-router-dom";
-import AppRoute from "./component/pertemuan-3/apps/AppRoute";
-import Login from "./component/pertemuan-3/layouts/components/Login/Login";
+// import AppRoute from "./component/pertemuan-3/apps/AppRoute";
+// import Login from "./component/pertemuan-3/layouts/components/Login/Login";
+import AppRoute from "./component/pertemuan-4/apps/routes/AppRoute";
 
 const { PUBLIC_URL } = process.env;
 const root = ReactDOM.createRoot(document.getElementById("root"));

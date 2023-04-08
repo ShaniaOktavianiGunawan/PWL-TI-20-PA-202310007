@@ -23,8 +23,8 @@ const Login = () => {
   return successLogin ? (
     <Navigate to="/home" replace={true} />
   ) : (
-    <div className="d-flex align-items-center vh-100">
-      <div className="card m-auto " style={{ width: "35rem" }}>
+    <div className="d-flex align-items-center vh-100 ">
+      <div className="card m-auto  " style={{ width: "35rem" }}>
         <div className="card-body ">
           <form onSubmit={handlesubmit}>
             <label for="inputEmail4" className="form-label">
